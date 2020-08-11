@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  padding-left:10px;
+}
+</style>
+
+<script>
+function validateForm() {
+
+  var d = document.getElementById("Postal").value;
+  var e = document.forms["myForm"]["Country"].value;
+  var f = document.getElementById("number").value;
+  var g = document.forms["myForm"]["email"].value;
+  var h = document.forms["myForm"]["password"].value;
+  var i = document.forms["myForm"]["password"].value;
+
+  if (d == "") {
+    alert("Postal must be filled out");
+    return false;
+  }
+  if (isNaN(d)) {
+    alert("Enter valid postal");
+    return false;
+  }
+
+  if (d.length!=6) {
+    alert("Enter 6 digits in postal");
+    return false;
+  }
+  
+  if (e == "select") {
+    alert("Country must be selected");
+    return false;
+  }
+  if (f == "") {
+    alert("Mobile Number must be filled out");
+    return false;
+  }
+
+  if (isNaN(f)) {
+    alert("Enter valid mobile number")
+    return false;
+  }
+
+  if (f.length!=10) {
+    alert("Enter 10 digits in mobile number");
+    return false;
+  }
+  if (g == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+
+  if (h == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+  
+  if (i.search(/[a-z]/) < 0) {
+    alert("Your password must contain at least one lowercase letter.")
+    return false;
+  }
+  if (i.search(/[A-Z]/) < 0) {
+    alert("Your password must contain at least one uppercase letter.")
+    return false;
+  }
+  if (i.search(/[0-9]/) < 0) {
+    alert("Your password must contain at least one digit.")
+    return false;
+  }
+  if(i.search(/[\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:\-]/) < 0) {
+    alert("Your password must contain at least one special character.")
+    return false;
+  }
+  if (i.length<8) {
+    alert("Minimum Length of password must be 8");
+    return false;
+  }
+  else
+  {
+  	alert("Registeration Completed Successfully");
+  }
+}</script>
+
+</head>
+<body>
+
+<h1 style = "text-align:center;color:red;">RCOEM</h1>
+<p><span style="font-size: 200%;">Workshop Registration</span>
+<br>Register now while seats are available!</p>
+<hr>
+<form name="myForm" onsubmit="return validateForm()">
+<b><span>Name</span><span style="color:red">*</span></b><br><br>
+<input type="text" name="title" size="2"> <input type="text" name="first" required> <input type="text" name="middle" required> <input type="text" name="last" required><br>
+<pre> Title          First                    Middle                   Last</pre>
+<b><span>Address</span><span style="color:red">*</span></b><br><br>
+<input type="text" name="street address" size="100" required> <br>
+<pre>Street Address</pre>
+<input type="text" name="address 2" size="100" required> <br>
+<pre>Address Line 2</pre>
+<input type="text" name="City" required>  <input type="text" name="State" required><br>
+<pre>City                     State</pre>
+<input type="text" id="Postal">  
+<select name="Country">
+    <option value="select">----------<-Select->----------</option>
+    <option value="India">India</option>
+    <option value="Japan">Japan</option>
+    <option value="Nepal">Nepal</option>
+    <option value="Pakistan">Pakistan</option>
+  </select>
+<pre>Postal/Zip Code          Country</pre>
+<br>
+<b><span>Mobile Number</span><span style="color:red">*</span></b><br><br>
+<input type="number" id="number">
+<br><br>
+<b><span>Email</span><span style="color:red">*</span></b><br><br>
+<input type="email" name="email">
+<br><br>
+<b><span>Password</span><span style="color:red">*</span></b><br><br>
+<input type="password" name="password">
+<br>
+<span style=" padding-left: 550px "><input type="submit"></span>
+</form>
+<br>
+</body>
+</html>
